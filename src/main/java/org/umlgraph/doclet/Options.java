@@ -117,6 +117,7 @@ public class Options implements Cloneable, OptionProvider {
     /** Guillemot right (close) */
     String guilClose = "&#187;";	// &raquo; \u00bb
     boolean inferRelationships;
+    boolean inferRelationshipLabels;
     boolean inferDependencies;
     boolean collapsibleDiagrams;
     RelationPattern contextRelationPattern;
@@ -176,6 +177,7 @@ public class Options implements Cloneable, OptionProvider {
 	viewName = null;
 	contextRelationPattern = new RelationPattern(RelationDirection.BOTH);
 	inferRelationships = false;
+	inferRelationshipLabels = false;
 	inferDependencies = false;
 	collapsibleDiagrams = false;
 	inferDependencyVisibility = Visibility.PRIVATE;
@@ -236,6 +238,7 @@ public class Options implements Cloneable, OptionProvider {
            option.equals("-enumerations") ||
            option.equals("-views") ||
            option.equals("-inferrel") ||
+           option.equals("-inferrellabel") ||
            option.equals("-useimports") ||
            option.equals("-collapsible") ||
            option.equals("-inferdep") ||
@@ -455,6 +458,10 @@ public class Options implements Cloneable, OptionProvider {
 	    inferRelationships = true;
 	} else if(opt[0].equals("-!inferrel")) {
 	    inferRelationships = false;
+	} else if(opt[0].equals("-inferrellabel")) {
+	    inferRelationshipLabels = true;
+	} else if(opt[0].equals("-!inferrellabel")) {
+		inferRelationshipLabels = false;
 	} else if(opt[0].equals("-inferreltype")) {
 		try {
 		    inferRelationshipType = RelationType.valueOf(opt[1].toUpperCase());
