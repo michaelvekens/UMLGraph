@@ -663,6 +663,8 @@ class ClassGraph {
     	"taillabel=\"" + tailLabel + "\", " +
     	((label == null || label.isEmpty()) ? "label=\" \"" : "label=\"" + guillemize(opt, label) + "\", ") +
     	"headlabel=\"" + headLabel + "\", " +
+    	((opt.edgeLabelDistance == null) ? "" : "labeldistance=\"" + opt.edgeLabelDistance + "\", ") + 
+    	((opt.edgeLabelAngle == null) ? "" : "labelangle=\"" + opt.edgeLabelAngle + "\", ") + 
     	"fontname=\"" + opt.edgeFontName + "\", " +
     	"fontcolor=\"" + opt.edgeFontColor + "\", " +
     	"fontsize=" + opt.edgeFontSize + ", " +

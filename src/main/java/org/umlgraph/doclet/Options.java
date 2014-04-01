@@ -82,6 +82,8 @@ public class Options implements Cloneable, OptionProvider {
     String edgeFontColor;
     String edgeColor;
     double edgeFontSize;
+    Double edgeLabelDistance;
+    Double edgeLabelAngle;
     String nodeFontName;
     String nodeFontAbstractName;
     String nodeFontColor;
@@ -151,6 +153,8 @@ public class Options implements Cloneable, OptionProvider {
 	edgeFontColor = "black";
 	edgeColor = "black";
 	edgeFontSize = 10;
+	edgeLabelDistance = null;
+	edgeLabelAngle = null;
 	nodeFontColor = "black";
 	nodeFontName = defaultFont;
 	nodeFontAbstractName = defaultItalicFont;
@@ -262,6 +266,8 @@ public class Options implements Cloneable, OptionProvider {
            option.equals("-edgecolor") ||
            option.equals("-edgefontsize") ||
            option.equals("-edgefontname") ||
+           option.equals("-edgelabeldistance") ||
+           option.equals("-edgelabelangle") ||
            option.equals("-shape") ||
            option.equals("-output") ||
            option.equals("-outputencoding") ||
@@ -355,6 +361,14 @@ public class Options implements Cloneable, OptionProvider {
 	    edgeFontSize = Integer.parseInt(opt[1]);
 	} else if (opt[0].equals("-!edgefontsize")) {
 	    edgeFontSize = 10;
+	} else if(opt[0].equals("-edgelabeldistance")) {
+		edgeLabelDistance = Double.parseDouble(opt[1]);
+	} else if (opt[0].equals("-!edgelabeldistance")) {
+		edgeLabelDistance = null;
+	} else if(opt[0].equals("-edgelabelangle")) {
+		edgeLabelAngle = Double.parseDouble(opt[1]);
+	} else if (opt[0].equals("-!edgelabelangle")) {
+		edgeLabelAngle = null;
 	} else if(opt[0].equals("-nodefontcolor")) {
 	    nodeFontColor = opt[1];
 	} else if (opt[0].equals("-!nodefontcolor")) {
