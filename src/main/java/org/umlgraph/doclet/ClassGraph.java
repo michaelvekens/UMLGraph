@@ -846,7 +846,7 @@ class ClassGraph {
 	    // if source and dest are not already linked, add a dependency
 	    RelationPattern rp = getClassInfo(c.toString()).getRelation(fri.cd.toString());
 	    if (rp == null) {
-		String name = opt.inferRelationshipLabels ? field.name() : "";
+		String name = opt.inferRelationshipLabels ? field.name() : ""; //
 		String destAdornment = fri.multiple ? "*" : "";
 		relation(opt, opt.inferRelationshipType, c, fri.cd, "", name, destAdornment);
             }
